@@ -1,0 +1,27 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": ".NET Launch (Integrated Terminal)",
+      "type": "coreclr",
+      "request": "launch",
+      "preLaunchTask": "build",
+      "program": "${workspaceFolder}/Inventoria C#/bin/Debug/net10.0/Inventoria C#.dll",
+      "args": [],
+      "cwd": "${workspaceFolder}/Inventoria C#",
+      "console": "integratedTerminal",
+      "stopAtEntry": false
+    },
+    {
+      "name": ".NET Launch (External Terminal)",
+      "type": "coreclr",
+      "request": "launch",
+      "preLaunchTask": "build",
+      "program": "${workspaceFolder}/Inventoria C#/bin/Debug/net10.0/Inventoria C#.dll",
+      "args": [],
+      "cwd": "${workspaceFolder}/Inventoria C#",
+      "console": "externalTerminal",
+      "stopAtEntry": false
+    }
+  ]
+}
