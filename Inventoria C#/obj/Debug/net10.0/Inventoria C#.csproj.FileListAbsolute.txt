@@ -12,3 +12,18 @@ c:\Users\ntuli\OneDrive\Documents\Inventoria\Inventoria C#\Inventoria C#\obj\Deb
 c:\Users\ntuli\OneDrive\Documents\Inventoria\Inventoria C#\Inventoria C#\obj\Debug\net10.0\Inventoria C#.pdb
 c:\Users\ntuli\OneDrive\Documents\Inventoria\Inventoria C#\Inventoria C#\obj\Debug\net10.0\Inventoria C#.genruntimeconfig.cache
 c:\Users\ntuli\OneDrive\Documents\Inventoria\Inventoria C#\Inventoria C#\obj\Debug\net10.0\ref\Inventoria C#.dll
+C:\Users\ntuli\OneDrive\Documents\Inventoria\Inventoria-C-\Inventoria C#\bin\Debug\net10.0\Inventoria C#.exe
+C:\Users\ntuli\OneDrive\Documents\Inventoria\Inventoria-C-\Inventoria C#\bin\Debug\net10.0\Inventoria C#.deps.json
+C:\Users\ntuli\OneDrive\Documents\Inventoria\Inventoria-C-\Inventoria C#\bin\Debug\net10.0\Inventoria C#.runtimeconfig.json
+C:\Users\ntuli\OneDrive\Documents\Inventoria\Inventoria-C-\Inventoria C#\bin\Debug\net10.0\Inventoria C#.dll
+C:\Users\ntuli\OneDrive\Documents\Inventoria\Inventoria-C-\Inventoria C#\bin\Debug\net10.0\Inventoria C#.pdb
+C:\Users\ntuli\OneDrive\Documents\Inventoria\Inventoria-C-\Inventoria C#\obj\Debug\net10.0\Inventoria C#.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ntuli\OneDrive\Documents\Inventoria\Inventoria-C-\Inventoria C#\obj\Debug\net10.0\Inventoria C#.AssemblyInfoInputs.cache
+C:\Users\ntuli\OneDrive\Documents\Inventoria\Inventoria-C-\Inventoria C#\obj\Debug\net10.0\Inventoria C#.AssemblyInfo.cs
+C:\Users\ntuli\OneDrive\Documents\Inventoria\Inventoria-C-\Inventoria C#\obj\Debug\net10.0\Inventoria C#.csproj.CoreCompileInputs.cache
+C:\Users\ntuli\OneDrive\Documents\Inventoria\Inventoria-C-\Inventoria C#\obj\Debug\net10.0\Inventoria C#.sourcelink.json
+C:\Users\ntuli\OneDrive\Documents\Inventoria\Inventoria-C-\Inventoria C#\obj\Debug\net10.0\Inventoria C#.dll
+C:\Users\ntuli\OneDrive\Documents\Inventoria\Inventoria-C-\Inventoria C#\obj\Debug\net10.0\refint\Inventoria C#.dll
+C:\Users\ntuli\OneDrive\Documents\Inventoria\Inventoria-C-\Inventoria C#\obj\Debug\net10.0\Inventoria C#.pdb
+C:\Users\ntuli\OneDrive\Documents\Inventoria\Inventoria-C-\Inventoria C#\obj\Debug\net10.0\Inventoria C#.genruntimeconfig.cache
+C:\Users\ntuli\OneDrive\Documents\Inventoria\Inventoria-C-\Inventoria C#\obj\Debug\net10.0\ref\Inventoria C#.dll

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ntuli\\OneDrive\\Documents\\Inventoria\\Inventoria C#\\Inventoria C#\\Inventoria C#.csproj": {}
+    "C:\\Users\\ntuli\\OneDrive\\Documents\\Inventoria\\Inventoria-C-\\Inventoria C#\\Inventoria C#.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ntuli\\OneDrive\\Documents\\Inventoria\\Inventoria C#\\Inventoria C#\\Inventoria C#.csproj": {
+    "C:\\Users\\ntuli\\OneDrive\\Documents\\Inventoria\\Inventoria-C-\\Inventoria C#\\Inventoria C#.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ntuli\\OneDrive\\Documents\\Inventoria\\Inventoria C#\\Inventoria C#\\Inventoria C#.csproj",
+        "projectUniqueName": "C:\\Users\\ntuli\\OneDrive\\Documents\\Inventoria\\Inventoria-C-\\Inventoria C#\\Inventoria C#.csproj",
         "projectName": "Inventoria C#",
-        "projectPath": "C:\\Users\\ntuli\\OneDrive\\Documents\\Inventoria\\Inventoria C#\\Inventoria C#\\Inventoria C#.csproj",
+        "projectPath": "C:\\Users\\ntuli\\OneDrive\\Documents\\Inventoria\\Inventoria-C-\\Inventoria C#\\Inventoria C#.csproj",
         "packagesPath": "C:\\Users\\ntuli\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ntuli\\OneDrive\\Documents\\Inventoria\\Inventoria C#\\Inventoria C#\\obj\\",
+        "outputPath": "C:\\Users\\ntuli\\OneDrive\\Documents\\Inventoria\\Inventoria-C-\\Inventoria C#\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
