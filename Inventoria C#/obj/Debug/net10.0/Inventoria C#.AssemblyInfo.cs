@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Inventoria C#")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+781915251901ff1f72806af4cee9f53d255b4ea4")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7cef966f5a990d76590a89ebc6fd6a80f63d50e2")]
 [assembly: System.Reflection.AssemblyProductAttribute("Inventoria C#")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Inventoria C#")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

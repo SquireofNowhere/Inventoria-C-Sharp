@@ -15,12 +15,23 @@ class ItemManagement
 
         while (true)
         {
-            ColumnName = GetColumnName();
-            ColumnValue = GetColumnValue();
+            Console.Clear();
+            System.Console.WriteLine("Creating a new item.");
+
+            ColumnName = GetColumnName(); //takes user input for column name
 
 
             if (!string.IsNullOrEmpty(ColumnName))
             {
+                ColumnValue = GetColumnValue(); //takes user input for column value
+
+                if (ColumnValue == null || string.IsNullOrEmpty(ColumnValue.ToString()))
+                {
+                    Console.WriteLine("Invalid Column Value. Please try again.");
+                    continue;
+
+                }
+
                 Item[ColumnName] = ColumnValue;
             }
             else
@@ -32,9 +43,10 @@ class ItemManagement
         return Item;
     }
 
+
     public string GetColumnName() //takes user input for column name
     {
-        Console.WriteLine("Enter the Column Name: ");
+        Console.WriteLine("\nEnter the Column Name: ");
 
         string? input = Console.ReadLine();
 
@@ -56,7 +68,7 @@ class ItemManagement
 
     public object? GetColumnValue() //takes user input for column value
     {
-        Console.WriteLine("Enter the Column Value: ");
+        Console.WriteLine("\nEnter the Column Value: ");
         string? input = Console.ReadLine();
 
         object? ColumnValue;
@@ -74,10 +86,10 @@ class ItemManagement
         return ColumnValue;
     }
 
-    public void DisplayItem()
+    public void DisplayItem(Dictionary<string, object?> theItem)
     {
         Console.WriteLine("Item Details:");
-        foreach (var kvp in Item)
+        foreach (var kvp in theItem)
         {
             Console.WriteLine($"{kvp.Key}: {kvp.Value}");
         }
