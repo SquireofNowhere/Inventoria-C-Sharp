@@ -2,19 +2,22 @@ using System.Linq.Expressions;
 
 class ItemManagement
 {
-    public Dictionary<string, object?> Item { get; set; } = new Dictionary<string, object?>();
+    public Dictionary<string, object?> Item { get; set; } = new Dictionary<string, object?>(StringComparer.OrdinalIgnoreCase);
 
 
     public Dictionary<string, object?> CreateItem()
     {
-        Item = new Dictionary<string, object?>();
+
 
         string ColumnName;
         object? ColumnValue;
 
+        Console.Clear();
+        Console.WriteLine("Creating a new item.");
+
         while (true)
         {
-            ColumnName = "\nName";
+            ColumnName = "Name";
             Console.WriteLine($"\nEnter the value for '{ColumnName}': ");
             ColumnValue = GetColumnValue();
 
@@ -24,13 +27,13 @@ class ItemManagement
                 continue;
 
             }
-
+            Item[ColumnName] = ColumnValue;
             break;
         }
 
         while (true)
         {
-            ColumnName = "\nQuantity";
+            ColumnName = "Quantity";
             Console.WriteLine($"\nEnter the value for '{ColumnName}': ");
             ColumnValue = GetColumnValue();
 
@@ -40,7 +43,7 @@ class ItemManagement
                 continue;
 
             }
-
+            Item[ColumnName] = ColumnValue;
             break;
         }
 
@@ -50,7 +53,7 @@ class ItemManagement
         while (true)
         {
 
-            ColumnName = "\nLocation";
+            ColumnName = "Location";
             Console.WriteLine($"\nEnter the value for '{ColumnName}': ");
             ColumnValue = GetColumnValue();
 
@@ -60,17 +63,14 @@ class ItemManagement
                 continue;
 
             }
-
+            Item[ColumnName] = ColumnValue;
             break;
         }
 
-
+        System.Console.WriteLine("\nCreate Next Field? (Leave blank to finish)\n");
         while (true)
         {
 
-
-            Console.Clear();
-            Console.WriteLine("Creating a new item.");
 
             ColumnName = GetColumnName(); //takes user input for column name
 
@@ -141,6 +141,49 @@ class ItemManagement
         return ColumnValue;
     }
 
+    public Dictionary<string, object?> UpdateItem(int index)
+    {
+        InventoryManagment inventoryManager = new InventoryManagment();
+
+        Dictionary<string, object?> updatedInstance = inventoryManager.Instances[index];
+
+        Console.WriteLine("-------------------");
+        Console.WriteLine($"Item Index: {index + 1}");
+        DisplayItem(updatedInstance);
+        Console.WriteLine("-------------------");
+
+        System.Console.WriteLine("\n Which field would you like to update? (Leave blank to finish)");
+
+        string? input = GetColumnName();
+
+        while (!string.IsNullOrEmpty(input))
+        {
+            string ColumnName = input;
+
+            Console.WriteLine($"\n\nEnter the new value for '{ColumnName}': ");
+
+            object? ColumnValue = GetColumnValue();
+
+            if (ColumnValue == null || string.IsNullOrEmpty(ColumnValue.ToString()))
+            {
+                Console.WriteLine("Invalid Column Value. Please try again.");
+            }
+            else if (updatedInstance.ContainsKey(ColumnName))
+            {
+                updatedInstance[ColumnName] = ColumnValue; //instance actually updated here
+                Console.WriteLine($"\n'{ColumnName}' updated successfully to {ColumnValue}q.");
+                break;
+            }
+            else
+            {
+                Console.WriteLine($"Column '{ColumnName}' does not exist in the item. Please try again.");
+
+            }
+        }
+
+
+        return updatedInstance;
+    }
     public void DisplayItem(Dictionary<string, object?> theItem)
     {
         Console.WriteLine("Item Details:");

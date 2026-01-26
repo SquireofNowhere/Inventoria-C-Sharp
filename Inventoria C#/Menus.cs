@@ -63,7 +63,7 @@ class Menus
                     System.Console.WriteLine("Add Items selected.\n");
 
 
-                    inventoryManager.AddItem(itemManager.CreateItem());
+                    inventoryManager.AddInstance(itemManager.CreateItem());
                     // Add the created item to the inventory
                     Console.ReadKey(true);
                     continue;
@@ -96,18 +96,18 @@ class Menus
 
 
 
-                    inventoryManager.DeleteItem(index);
+                    inventoryManager.DeleteInstance(index);
                     Console.ReadKey(true);
                     continue;
                 case '4':
 
                     Console.Clear();
 
-                    System.Console.WriteLine("UPDATE UNDER CONSTRUCTION - Feature coming soon!\n");
-                    Console.ReadKey(true);
-                    continue;
+                    // System.Console.WriteLine("UPDATE UNDER CONSTRUCTION - Feature coming soon!\n");
+                    // Console.ReadKey(true);
+                    // continue;
 
-                    System.Console.WriteLine("Update Items selected.\n");
+                    Console.WriteLine("Update Items selected.\n");
                     System.Console.WriteLine("Enter the index of the item to update: ");
                     int updateIndex;
 
@@ -132,13 +132,36 @@ class Menus
                     }
 
                     // Create the updated item and replace the existing one
-                    // inventoryManager.UpdateItem(updateIndex, itemManager.CreateItem());
-                    // Console.ReadKey(true);
+                    while (true)
+                    {
+                        inventoryManager.UpdateInstance(updateIndex, itemManager.UpdateItem(updateIndex));
+
+                        Console.WriteLine("Would you like to update another item? (y/n): ");
+                        var choice = Console.ReadKey(true).KeyChar;
+                        if (choice == 'y' || choice == 'Y')
+                        {
+                            continue;
+                        }
+                        else if (choice == 'n' || choice == 'N')
+                        {
+                            break;
+                        }
+                        else
+                        {
+                            Console.Clear();
+                            System.Console.WriteLine("Invalid option. Returning to Inventory Menu.\nClick any key to continue...");
+                            Console.ReadKey(true);
+                            break;
+                        }
+                    }
+
+
                     continue;
 
                 case '0':
-                    System.Console.WriteLine("Going back to the main menu.");
+                    Console.WriteLine("Going back to the main menu.");
                     return;
+
                 default:
                     Console.Clear();
                     System.Console.WriteLine("Invalid option. Please try again.\nClick any key to continue...");

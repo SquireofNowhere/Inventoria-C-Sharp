@@ -1,20 +1,21 @@
 class InventoryManagment
 {
-    List<Dictionary<string, object?>> Items;
+    public List<Dictionary<string, object?>> Instances;
     ItemManagement itemManager = new ItemManagement();
 
     public InventoryManagment()
     {
-        Items = new List<Dictionary<string, object?>>()
+        Instances = new List<Dictionary<string, object?>>()
+
         {
-            new Dictionary<string, object?>()
+            new Dictionary<string, object?>(StringComparer.OrdinalIgnoreCase)
             {
                 {"Name", "Mouse"},
                 {"Quantity", 1},
                 {"Location", "My Room 414"},
                 {"Price", 199.99}
             },
-            new Dictionary<string, object?>()
+            new Dictionary<string, object?>(StringComparer.OrdinalIgnoreCase)
             {
                 {"Name", "Controller"},
                 {"Quantity", 0},
@@ -24,47 +25,59 @@ class InventoryManagment
         };
     }
 
-    public void AddItem(Dictionary<string, object?> newItem)
+    public void AddInstance(Dictionary<string, object?> newInstance)
     {
 
 
-        if (newItem == null || newItem.Count == 0)
+        if (newInstance == null || newInstance.Count == 0)
         {
             Console.WriteLine("Cannot add an empty item.");
             return;
         }
         else
         {
-            Items.Add(newItem);
-            itemManager.DisplayItem(newItem);
-            Console.WriteLine($"Item added successfully to index {Items.IndexOf(newItem) + 1}.");
+            Instances.Add(newInstance);
+            itemManager.DisplayItem(newInstance);
+            Console.WriteLine($"Item added successfully to index {Instances.IndexOf(newInstance) + 1}.");
         }
     }
 
-    public void DeleteItem(int index)
+    public void DeleteInstance(int index)
     {
-        if (index < 0 || index >= Items.Count)
+        if (index < 0 || index >= Instances.Count)
         {
             Console.WriteLine("Invalid index. No item deleted. Press any key to continue...");
             return;
         }
 
-        Items.RemoveAt(index);
+        Instances.RemoveAt(index);
         Console.WriteLine($"Item at index {index} deleted successfully.");
+    }
+
+    public void UpdateInstance(int index, Dictionary<string, object?> updatedItem)
+    {
+        if (index < 0 || index >= Instances.Count)
+        {
+            Console.WriteLine("Invalid index. No item updated. Press any key to continue...");
+            return;
+        }
+
+        Instances[index] = updatedItem;
+        Console.WriteLine($"Item at index {index} updated successfully.");
     }
 
 
     public void DisplayAllItems()
     {
-        if (Items.Count == 0)
+        if (Instances.Count == 0)
         {
             Console.WriteLine("No items in inventory.");
             return;
         }
         Console.WriteLine("-------------------");
-        foreach (var item in Items)
+        foreach (var item in Instances)
         {
-            Console.WriteLine($"Item Index: {Items.IndexOf(item) + 1}");
+            Console.WriteLine($"Item Index: {Instances.IndexOf(item) + 1}");
             itemManager.DisplayItem(item);
             Console.WriteLine("-------------------");
         }
