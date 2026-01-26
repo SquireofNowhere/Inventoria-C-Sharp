@@ -42,6 +42,7 @@ class Menus
             System.Console.WriteLine("1. View Item");
             System.Console.WriteLine("2. Add Items");
             System.Console.WriteLine("3. Delete Items");
+            System.Console.WriteLine("4. Update Items");
             System.Console.WriteLine("0. Back to Main Menu \n");
 
             System.Console.WriteLine("Press a number to select an option");
@@ -75,7 +76,52 @@ class Menus
 
                     try
                     {
-                        index = int.Parse(Console.ReadLine() ?? string.Empty);
+                        index = int.Parse(Console.ReadLine() ?? string.Empty) - 1;
+
+                        if (index < 0)
+                        {
+                            Console.Clear();
+                            System.Console.WriteLine("Index cannot be less than 1.\nClick any key to continue...");
+                            Console.ReadKey(true);
+                            continue;
+                        }
+                    }
+                    catch (FormatException)
+                    {
+                        Console.Clear();
+                        System.Console.WriteLine("Invalid input. Please enter a valid integer.\nClick any key to continue...");
+                        Console.ReadKey(true);
+                        continue;
+                    }
+
+
+
+                    inventoryManager.DeleteItem(index);
+                    Console.ReadKey(true);
+                    continue;
+                case '4':
+
+                    Console.Clear();
+
+                    System.Console.WriteLine("UPDATE UNDER CONSTRUCTION - Feature coming soon!\n");
+                    Console.ReadKey(true);
+                    continue;
+
+                    System.Console.WriteLine("Update Items selected.\n");
+                    System.Console.WriteLine("Enter the index of the item to update: ");
+                    int updateIndex;
+
+                    try
+                    {
+                        updateIndex = int.Parse(Console.ReadLine() ?? string.Empty) - 1;
+
+                        if (updateIndex < 0)
+                        {
+                            Console.Clear();
+                            System.Console.WriteLine("Index cannot be less than 1.\nClick any key to continue...");
+                            Console.ReadKey(true);
+                            continue;
+                        }
                     }
                     catch (FormatException)
                     {
@@ -85,9 +131,11 @@ class Menus
                         continue;
                     }
 
-                    inventoryManager.DeleteItem(index);
-                    Console.ReadKey(true);
+                    // Create the updated item and replace the existing one
+                    // inventoryManager.UpdateItem(updateIndex, itemManager.CreateItem());
+                    // Console.ReadKey(true);
                     continue;
+
                 case '0':
                     System.Console.WriteLine("Going back to the main menu.");
                     return;

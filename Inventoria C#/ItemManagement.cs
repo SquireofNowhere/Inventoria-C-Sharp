@@ -12,13 +12,68 @@ class ItemManagement
         string ColumnName;
         object? ColumnValue;
 
+        while (true)
+        {
+            ColumnName = "\nName";
+            Console.WriteLine($"\nEnter the value for '{ColumnName}': ");
+            ColumnValue = GetColumnValue();
+
+            if (ColumnValue == null || string.IsNullOrEmpty(ColumnValue.ToString()))
+            {
+                Console.WriteLine("Invalid Column Value. Please try again.");
+                continue;
+
+            }
+
+            break;
+        }
 
         while (true)
         {
+            ColumnName = "\nQuantity";
+            Console.WriteLine($"\nEnter the value for '{ColumnName}': ");
+            ColumnValue = GetColumnValue();
+
+            if (ColumnValue == null || string.IsNullOrEmpty(ColumnValue.ToString()))
+            {
+                Console.WriteLine("Invalid Column Value. Please try again.");
+                continue;
+
+            }
+
+            break;
+        }
+
+
+
+
+        while (true)
+        {
+
+            ColumnName = "\nLocation";
+            Console.WriteLine($"\nEnter the value for '{ColumnName}': ");
+            ColumnValue = GetColumnValue();
+
+            if (ColumnValue == null || string.IsNullOrEmpty(ColumnValue.ToString()))
+            {
+                Console.WriteLine("Invalid Column Value. Please try again.");
+                continue;
+
+            }
+
+            break;
+        }
+
+
+        while (true)
+        {
+
+
             Console.Clear();
-            System.Console.WriteLine("Creating a new item.");
+            Console.WriteLine("Creating a new item.");
 
             ColumnName = GetColumnName(); //takes user input for column name
+
 
 
             if (!string.IsNullOrEmpty(ColumnName))

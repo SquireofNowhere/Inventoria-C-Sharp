@@ -11,12 +11,14 @@ class InventoryManagment
             {
                 {"Name", "Mouse"},
                 {"Quantity", 1},
+                {"Location", "My Room 414"},
                 {"Price", 199.99}
             },
             new Dictionary<string, object?>()
             {
                 {"Name", "Controller"},
                 {"Quantity", 0},
+                {"Location", "My Room 414"},
                 {"Price", 999.99}
             }
         };
@@ -35,7 +37,7 @@ class InventoryManagment
         {
             Items.Add(newItem);
             itemManager.DisplayItem(newItem);
-            Console.WriteLine($"Item added successfully to index {Items.IndexOf(newItem)}.");
+            Console.WriteLine($"Item added successfully to index {Items.IndexOf(newItem) + 1}.");
         }
     }
 
@@ -50,6 +52,8 @@ class InventoryManagment
         Items.RemoveAt(index);
         Console.WriteLine($"Item at index {index} deleted successfully.");
     }
+
+
     public void DisplayAllItems()
     {
         if (Items.Count == 0)
@@ -60,9 +64,11 @@ class InventoryManagment
         Console.WriteLine("-------------------");
         foreach (var item in Items)
         {
-            Console.WriteLine($"Item Index: {Items.IndexOf(item)}");
+            Console.WriteLine($"Item Index: {Items.IndexOf(item) + 1}");
             itemManager.DisplayItem(item);
             Console.WriteLine("-------------------");
         }
+
+        System.Console.WriteLine("\n\n\nPress any key to continue...");
     }
 }
