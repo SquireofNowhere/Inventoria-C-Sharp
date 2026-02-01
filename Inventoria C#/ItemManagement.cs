@@ -145,7 +145,7 @@ class ItemManagement
     {
         InventoryManagment inventoryManager = new InventoryManagment();
 
-        Dictionary<string, object?> updatedInstance = inventoryManager.Instances[index];
+        Dictionary<string, object?> updatedInstance = inventoryManager.FetchInventoryItem(index);
 
         Console.WriteLine("-------------------");
         Console.WriteLine($"Item Index: {index + 1}");
@@ -156,6 +156,7 @@ class ItemManagement
 
         string? input = GetColumnName();
 
+        //this while is for changes, if the input is invalid it will not ask for changes and will instead return the original instance.
         while (!string.IsNullOrEmpty(input))
         {
             string ColumnName = input;
@@ -171,7 +172,7 @@ class ItemManagement
             else if (updatedInstance.ContainsKey(ColumnName))
             {
                 updatedInstance[ColumnName] = ColumnValue; //instance actually updated here
-                Console.WriteLine($"\n'{ColumnName}' updated successfully to {ColumnValue}q.");
+                Console.WriteLine($"\n'{ColumnName}' updated successfully to {ColumnValue}.");
                 break;
             }
             else
@@ -184,6 +185,7 @@ class ItemManagement
 
         return updatedInstance;
     }
+
     public void DisplayItem(Dictionary<string, object?> theItem)
     {
         Console.WriteLine("Item Details:");

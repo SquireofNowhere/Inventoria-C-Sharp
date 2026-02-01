@@ -1,6 +1,6 @@
 class InventoryManagment
 {
-    public List<Dictionary<string, object?>> Instances;
+    private List<Dictionary<string, object?>> Instances;
     ItemManagement itemManager = new ItemManagement();
 
     public InventoryManagment()
@@ -62,8 +62,15 @@ class InventoryManagment
             return;
         }
 
+        // Handling no changes made
+        if (Instances[index].SequenceEqual(updatedItem))
+        {
+            Console.WriteLine("No changes detected. Item not updated.");
+            return;
+        }
+
         Instances[index] = updatedItem;
-        Console.WriteLine($"Item at index {index} updated successfully.");
+        Console.WriteLine($"Item at index {index + 1} updated successfully.");
     }
 
 
@@ -84,4 +91,18 @@ class InventoryManagment
 
         System.Console.WriteLine("\n\n\nPress any key to continue...");
     }
+
+    public Dictionary<string, object?> FetchInventoryItem(int index)
+    {
+
+        var item = Instances[index];
+        Console.WriteLine($"Item Index: {index + 1}");
+
+
+        return item;
+
+
+    }
 }
+
+

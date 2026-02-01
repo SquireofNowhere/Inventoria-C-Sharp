@@ -1,7 +1,9 @@
-﻿// See https://aka.ms/new-console-template for more information
+﻿
 
+
+// Initialize managers
 ItemManagement itemManager = new ItemManagement();
-InventoryManagment inventoryManager = new InventoryManagment(); // Create an instance of InventoryManagment
+InventoryManagment inventoryManager = new InventoryManagment();
 
 
 Menus.ShowMainMenu(itemManager, inventoryManager); // Display the main menu
