@@ -141,14 +141,14 @@ class ItemManagement
         return ColumnValue;
     }
 
-    public Dictionary<string, object?> UpdateItem(int index)
+    public Dictionary<string, object?> EditColumn(int index)
     {
         InventoryManagment inventoryManager = new InventoryManagment();
 
         Dictionary<string, object?> updatedInstance = inventoryManager.FetchInventoryItem(index);
 
         Console.WriteLine("-------------------");
-        Console.WriteLine($"Item Index: {index + 1}");
+        Console.WriteLine($"Item Index: {index + 1}\n");
         DisplayItem(updatedInstance);
         Console.WriteLine("-------------------");
 
@@ -171,7 +171,7 @@ class ItemManagement
             }
             else if (updatedInstance.ContainsKey(ColumnName))
             {
-                updatedInstance[ColumnName] = ColumnValue; //instance actually updated here
+                updatedInstance[ColumnName] = ColumnValue; //instance Value actually updated here
                 Console.WriteLine($"\n'{ColumnName}' updated successfully to {ColumnValue}.");
                 break;
             }
@@ -188,7 +188,7 @@ class ItemManagement
 
     public void DisplayItem(Dictionary<string, object?> theItem)
     {
-        Console.WriteLine("Item Details:");
+        Console.WriteLine("Item Details:\n");
         foreach (var kvp in theItem)
         {
             Console.WriteLine($"{kvp.Key}: {kvp.Value}");

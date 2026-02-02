@@ -84,7 +84,7 @@ class InventoryManagment
         Console.WriteLine("-------------------");
         foreach (var item in Instances)
         {
-            Console.WriteLine($"Item Index: {Instances.IndexOf(item) + 1}");
+
             itemManager.DisplayItem(item);
             Console.WriteLine("-------------------");
         }

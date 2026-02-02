@@ -20,9 +20,11 @@ class Menus
                 case '1':
                     Menus.ShowInventoryMenu(itemManager, inventoryManager); // Call the inventory menu function
                     break;
+
                 case '0':
                     System.Console.WriteLine("Exiting the program.");
                     return; // Exit the program
+
                 default:
                     Console.Clear();
                     System.Console.WriteLine("Invalid option. Please try again.\nClick any key to continue...");
@@ -39,10 +41,10 @@ class Menus
         {
             Console.Clear();
             System.Console.WriteLine("Inventory Menu\n");
-            System.Console.WriteLine("1. View Item");
+            System.Console.WriteLine("1. View Inventory");
             System.Console.WriteLine("2. Add Items");
             System.Console.WriteLine("3. Delete Items");
-            System.Console.WriteLine("4. Update Items");
+            System.Console.WriteLine("4. Edit Items");
             System.Console.WriteLine("0. Back to Main Menu \n");
 
             System.Console.WriteLine("Press a number to select an option");
@@ -51,14 +53,15 @@ class Menus
 
             switch (input) //switch statement to handle menu options
             {
-                case '1':
+                case '1': //View Item
                     Console.Clear();
-                    System.Console.WriteLine("View Item selected.\n");
+                    System.Console.WriteLine("View Inventory selected.\n");
                     inventoryManager.DisplayAllItems();
 
                     Console.ReadKey(true);
                     continue;
-                case '2':
+
+                case '2': //Add Item
                     Console.Clear();
                     System.Console.WriteLine("Add Items selected.\n");
 
@@ -67,7 +70,8 @@ class Menus
                     // Add the created item to the inventory
                     Console.ReadKey(true);
                     continue;
-                case '3':
+
+                case '3': //Delete Item
                     Console.Clear();
                     System.Console.WriteLine("Delete Items selected.\n");
 
@@ -99,23 +103,19 @@ class Menus
                     inventoryManager.DeleteInstance(index);
                     Console.ReadKey(true);
                     continue;
-                case '4':
+
+                case '4': //Edit Item
 
                     Console.Clear();
 
-                    // System.Console.WriteLine("UPDATE UNDER CONSTRUCTION - Feature coming soon!\n");
-                    // Console.ReadKey(true);
-                    // continue;
-
                     Console.WriteLine("Update Items selected.\n");
                     System.Console.WriteLine("Enter the index of the item to update: ");
-                    int updateIndex;
+                    int EditIndex;
 
                     try
                     {
-                        updateIndex = int.Parse(Console.ReadLine() ?? string.Empty) - 1;
-
-                        if (updateIndex < 0)
+                        EditIndex = int.Parse(Console.ReadLine() ?? string.Empty) - 1;
+                        if (EditIndex < 0)
                         {
                             Console.Clear();
                             System.Console.WriteLine("Index cannot be less than 1.\nClick any key to continue...");
@@ -131,29 +131,14 @@ class Menus
                         continue;
                     }
 
-                    // Create the updated item and replace the existing one
-                    while (true)
-                    {
-                        inventoryManager.UpdateInstance(updateIndex, itemManager.UpdateItem(updateIndex));
+                    Dictionary<string, object?> updatedInstance = inventoryManager.FetchInventoryItem(EditIndex);
+                    Console.Clear();
+                    Console.WriteLine("-------------------");
+                    Console.WriteLine($"Item Index: {EditIndex + 1}");
+                    itemManager.DisplayItem(updatedInstance);
+                    Console.WriteLine("-------------------\n");
 
-                        Console.WriteLine("Would you like to update another item? (y/n): ");
-                        var choice = Console.ReadKey(true).KeyChar;
-                        if (choice == 'y' || choice == 'Y')
-                        {
-                            continue;
-                        }
-                        else if (choice == 'n' || choice == 'N')
-                        {
-                            break;
-                        }
-                        else
-                        {
-                            Console.Clear();
-                            System.Console.WriteLine("Invalid option. Returning to Inventory Menu.\nClick any key to continue...");
-                            Console.ReadKey(true);
-                            break;
-                        }
-                    }
+                    Menus.ShowEditMenu(itemManager, inventoryManager, EditIndex);
 
 
                     continue;
@@ -168,6 +153,113 @@ class Menus
                     Console.ReadKey(true);
                     break;
             }
+        }
+    }
+
+    public static void ShowEditMenu(ItemManagement itemManager, InventoryManagment inventoryManager, int EditIndex)
+    {
+        // Future implementation for a dedicated update menu if needed
+
+
+
+        System.Console.WriteLine("1. Edit Column");
+        System.Console.WriteLine("2. Delete Column");
+        System.Console.WriteLine("3. Add Column");
+        System.Console.WriteLine("0. Back to Inventory Menu \n");
+
+        System.Console.WriteLine("Press a number to select an option");
+
+        var input = System.Console.ReadKey(true).KeyChar; //reads the Inventory input from user
+
+        switch (input) //switch statement to handle menu options
+        {
+            case '1':
+                Console.Clear();
+                System.Console.WriteLine("Edit Column selected.\n");
+
+                System.Console.WriteLine("1. Edit Column Name");
+                System.Console.WriteLine("2. Edit Column Value");
+                System.Console.WriteLine("0. Back to Edit Menu \n");
+
+                System.Console.WriteLine("Press a number to select an option");
+
+                var EditColumninput = System.Console.ReadKey(true).KeyChar; //reads the Inventory input from user
+
+                switch (EditColumninput) //switch statement to handle menu options
+                {
+                    case '1':
+                        Console.Clear();
+                        System.Console.WriteLine("Edit Column Name selected.\n");
+                        Console.ReadKey(true);
+                        break;
+
+                    case '2':
+                        Console.Clear();
+                        System.Console.WriteLine("Edit Column Value selected.\n");
+
+                        while (true)
+                        {
+                            inventoryManager.UpdateInstance(EditIndex, itemManager.EditColumn(EditIndex));
+
+                            Console.WriteLine("Would you like to edit another Column? (y/n): ");
+                            var choice = Console.ReadKey(true).KeyChar;
+                            if (choice == 'y' || choice == 'Y')
+                            {
+                                continue;
+                            }
+                            else if (choice == 'n' || choice == 'N')
+                            {
+                                break;
+                            }
+                            else
+                            {
+                                Console.Clear();
+                                System.Console.WriteLine("Invalid option. Returning to Inventory Menu.\nClick any key to continue...");
+                                Console.ReadKey(true);
+                                break;
+                            }
+                        }
+
+                        break;
+
+                    case '0':
+                        Console.WriteLine("Going back to the Edit menu.");
+                        return;
+
+                    default:
+                        Console.Clear();
+                        System.Console.WriteLine("Invalid option. Please try again.\nClick any key to continue...");
+                        Console.ReadKey(true);
+                        break;
+                }
+
+
+
+                break;
+
+            case '2':
+                Console.Clear();
+                System.Console.WriteLine("Delete Column selected.\n");
+                // Future implementation for deleting a column
+                Console.ReadKey(true);
+                break;
+
+            case '3':
+                Console.Clear();
+                System.Console.WriteLine("Add Column selected.\n");
+                // Future implementation for adding a column
+                Console.ReadKey(true);
+                break;
+
+            case '0':
+                Console.WriteLine("Going back to the Inventory menu.");
+                return;
+
+            default:
+                Console.Clear();
+                System.Console.WriteLine("Invalid option. Please try again.\nClick any key to continue...");
+                Console.ReadKey(true);
+                break;
         }
     }
 }
